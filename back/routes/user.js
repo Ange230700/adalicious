@@ -5,7 +5,7 @@ const databaseClient = require("../database/client");
 
 async function readCustomerByEmail(email) {
   const [[customer]] = await databaseClient.query(
-    `SELECT customer_id, customer_email, customer_password FROM Customer WHERE customer_email = ?`,
+    `SELECT * FROM Customer WHERE customer_email = ?`,
     [email]
   );
   return customer;
