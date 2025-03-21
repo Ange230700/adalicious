@@ -4,6 +4,9 @@
 -- Une commande est constitué d'un ou plusieurs menus. Un menu peut faire partie d'une ou plusieurs commandes.
 -- On représentera les relations à l'aide de la méthode MERISE.
 
+SET
+  time_zone = "+00:00";
+
 DROP TABLE IF EXISTS `Customer_Menu`;
 DROP TABLE IF EXISTS `Order_Menu`;
 DROP TABLE IF EXISTS `Order`;

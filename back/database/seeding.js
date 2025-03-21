@@ -72,11 +72,31 @@ async function insertMenus() {
   await Promise.all(queries);
 }
 
+async function insertOrders() {
+  const customer_id = 1;
+  const ordersCreationDates = faker.date.betweens({
+    from: "2016-01-01T00:00:00.000Z",
+    to: "2025-03-21T00:00:00.000Z",
+    count: { min: 5, max: 10 },
+  });
+  const orders = ordersCreationDates.map((date) => {
+    return { customer_id, created_at: date };
+  });
+  const queries = orders.map(async (order) => {
+    return database.query(
+      "INSERT INTO `Order` (`customer_id`, `created_at`) VALUES (?, ?)",
+      [customer_id, order.created_at]
+    );
+  });
+  await Promise.all(queries);
+}
+
 async function seed() {
   try {
     migrate();
     await insertCustomer();
     await insertMenus();
+    await insertOrders();
     console.info("Base de données remplie.");
   } catch (e) {
     console.error("Erreur lors du remplissage:", e.message);

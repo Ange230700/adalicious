@@ -6,7 +6,7 @@
 
 ## GET /menus/list : récupère la liste des menus
 
-![liste_menus](./back/public/getMenusList.png)
+![list_menus](./back/public/getMenusList.png)
 
 ## GET /menus/{menu_id} : récupère un menu dans la liste
 
@@ -20,4 +20,10 @@
 
 ![deleted_menu](./back/public/deletedMenu.png)
 
+## GET /orders/customer/{customer_id} : récupère toutes commandes passées par le client
 
+![list_orders](./back/public/ordersList.png)
+
+## GET /orders/{order_id}/customer/{customer_id} : récupère une commande passée par le client
+
+![one_order](./back/public/order.png)
