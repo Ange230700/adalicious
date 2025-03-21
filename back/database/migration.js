@@ -1,8 +1,7 @@
 const mysql = require("mysql2/promise");
 const fs = require("node:fs");
 const path = require("node:path");
-const schema = path.join(__dirname, "database", "schema.sql");
-
+const schema = path.join(__dirname, "schema.sql");
 const migrate = async () => {
   try {
     const sql = fs.readFileSync(schema, "utf8");
@@ -27,5 +26,4 @@ const migrate = async () => {
     );
   }
 };
-migrate();
 module.exports = migrate;

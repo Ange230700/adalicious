@@ -2,12 +2,13 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const usersRouter = require("./routes/user");
-const databaseClient = require("./database/client");
+const menusRouter = require("./routes/menu");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/user", usersRouter);
+app.use("/menus", menusRouter);
 
 app.use(function (err, req, res, next) {
   console.error(err);
